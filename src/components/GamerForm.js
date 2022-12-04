@@ -21,7 +21,6 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
   const elapsedString = millisecondsToHuman(timer2[0].elapsed);
   const [disabled, setDisabled] = useState(false);
   const [sound, setSound] = React.useState();
-  const [failure, setFaliure] = React.useState();
 
   const [value, setValue] = useState("");
   const [success, setSuccess] = useState(false);
@@ -30,7 +29,8 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
   async function playSuccess() {
     console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/sounds/success.mp3")
+      require("../assets/sounds/success.mp3"),
+      { shouldPlay: true }
     );
     setSound(sound);
 
@@ -40,13 +40,14 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
 
   async function playFaliure() {
     console.log("Loading Sound");
-    const { failure } = await Audio.Sound.createAsync(
-      require("../assets/sounds/negative.mp3")
+    const { sound } = await Audio.Sound.createAsync(
+      require("../assets/sounds/negative.mp3"),
+      { shouldPlay: true }
     );
-    setFaliure(failure);
+    setSound(sound);
 
     console.log("Playing Sound");
-    await failure.playAsync();
+    await sound.playAsync();
   }
 
   React.useEffect(() => {
@@ -57,15 +58,6 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
         }
       : undefined;
   }, [sound]);
-
-  React.useEffect(() => {
-    return failure
-      ? () => {
-          console.log("Unloading Sound");
-          failure.unloadAsync();
-        }
-      : undefined;
-  }, [failure]);
 
   React.useEffect(() => {
     const TIME_INTERVAL = 1000;
@@ -172,6 +164,7 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
           </Text>
         </Layout>
         <Input
+          keyboardType="numeric"
           disabled={disabled}
           value={value}
           onChangeText={(nextValue) => setValue(nextValue)}
