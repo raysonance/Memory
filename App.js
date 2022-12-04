@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import * as eva from "@eva-design/eva";
+import { default as mapping } from "./mapping.json";
+import RootNavigation from "./navigation";
+
+import { useCallback } from "react";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { View } from "react-native";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Action_Man: require("./src/assets/font/Action_Man.ttf"),
+    Action_Man_Bold: require("./src/assets/font/Action_Man_Bold.ttf"),
+    Pacifico: require("./src/assets/font/Pacifico.ttf"),
+  });
+
+  console.log(fontsLoaded);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <IconRegistry icons={EvaIconsPack} />
+      <ApplicationProvider {...eva} theme={eva.dark} customMapping={mapping}>
+        <RootNavigation />
+        <View onLayout={onLayoutRootView}></View>
+      </ApplicationProvider>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
