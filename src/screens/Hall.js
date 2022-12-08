@@ -25,7 +25,7 @@ const Hall = ({ navigation }) => {
       <ImageBackground
         resizeMode="cover"
         style={{ flex: 1 }}
-        source={require("../assets/bg/3.jpg")}
+        source={require("../../assets/bg/3.jpg")}
       >
         <View
           style={{

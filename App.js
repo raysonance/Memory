@@ -14,12 +14,10 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    Action_Man: require("./src/assets/font/Action_Man.ttf"),
-    Action_Man_Bold: require("./src/assets/font/Action_Man_Bold.ttf"),
-    Pacifico: require("./src/assets/font/Pacifico.ttf"),
+    Action_Man: require("./assets/font/Action_Man.ttf"),
+    Action_Man_Bold: require("./assets/font/Action_Man_Bold.ttf"),
+    Pacifico: require("./assets/font/Pacifico.ttf"),
   });
-
-  console.log(fontsLoaded);
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {

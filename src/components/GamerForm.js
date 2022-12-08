@@ -27,33 +27,28 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
   const [error, setError] = useState(false);
 
   async function playSuccess() {
-    console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/sounds/success.mp3"),
+      require("../../assets/sounds/success.mp3"),
       { shouldPlay: true }
     );
     setSound(sound);
 
-    console.log("Playing Sound");
     await sound.playAsync();
   }
 
   async function playFaliure() {
-    console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/sounds/negative.mp3"),
+      require("../../assets/sounds/negative.mp3"),
       { shouldPlay: true }
     );
     setSound(sound);
 
-    console.log("Playing Sound");
     await sound.playAsync();
   }
 
   React.useEffect(() => {
     return sound
       ? () => {
-          console.log("Unloading Sound");
           sound.unloadAsync();
         }
       : undefined;
@@ -133,7 +128,7 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
         <View style={{ alignContent: "center", alignItems: "center" }}>
           <AnimatedLottieView
             style={{ height: 120 }}
-            source={require("../assets/animations/checkmark-success.json")}
+            source={require("../../assets/animations/checkmark-success.json")}
             autoPlay
             loop={false}
             speed={1.5}
@@ -145,7 +140,7 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
         <View style={{ alignContent: "center", alignItems: "center" }}>
           <AnimatedLottieView
             style={{ height: 120 }}
-            source={require("../assets/animations/error.json")}
+            source={require("../../assets/animations/error.json")}
             autoPlay
             loop={false}
             speed={1.5}
