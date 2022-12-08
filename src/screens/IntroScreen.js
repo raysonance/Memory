@@ -5,22 +5,22 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 
 const slides = [
   {
-    key: 'one',
-    title: 'Best Memorization App',
-    text: "Best app for memorization. It's really something cool",
-    image: require('../assets/png/1-min.png'),
+    key: "one",
+    title: "Best Memorization App",
+    text: "Best app for building your memory.",
+    image: require("../../assets/png/1-min.png"),
   },
   {
-    key: 'two',
-    title: 'Boost Your Brain Power',
-    text: 'Other cool stuff',
-    image: require('../assets/png/2-min.png'),
+    key: "two",
+    title: "Boost Your Brain Power",
+    text: "Another cool stuff",
+    image: require("../../assets/png/2-min.png"),
   },
   {
-    key: 'three',
-    title: 'Memorize Like a Genius',
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
-    image: require('../assets/png/3-min.png'),
+    key: "three",
+    title: "Memorize Like a Genius",
+    text: "I'm already out of descriptions",
+    image: require("../../assets/png/3-min.png"),
   },
 ];
 

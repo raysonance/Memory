@@ -5,10 +5,10 @@ import { Image, TouchableOpacity, View } from 'react-native';
 
 const Options = ({ navigation, number, star, id }) => {
   const data = {
-    1: { image: require('../assets/angry.jpg'), text: 'easy', nav: 'lvl1' },
-    2: { image: require('../assets/smiling.jpg'), text: 'medium', nav: 'lvl2' },
+    1: { image: require('../../assets/images/angry.jpg'), text: 'easy', nav: 'lvl1' },
+    2: { image: require('../../assets/images/smiling.jpg'), text: 'medium', nav: 'lvl2' },
     3: {
-      image: require('../assets/smile.jpg'),
+      image: require('../../assets/images/smile.jpg'),
       text: 'difficult',
       nav: 'lvl3',
     },

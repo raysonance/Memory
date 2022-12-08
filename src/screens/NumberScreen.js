@@ -54,7 +54,7 @@ const NumberScreen = ({ navigation }) => {
       <TopView
         navigation={navigation}
         test={test ? test.key : '0'}
-        level={level ? level.title : "White Room"}
+        level={level ? level.title : "God"}
         id={level ? level.key : "5"}
       />
       <View
@@ -66,7 +66,7 @@ const NumberScreen = ({ navigation }) => {
         }}
       >
         <Image
-          source={require("../assets/png/flag.png")}
+          source={require("../../assets/png/flag-min.png")}
           style={{
             resizeMode: "contain",
             width: 20,
