@@ -26,7 +26,7 @@ const slides = [
 
 const IntroScreen = ({ navigation }) => {
   const onDone = () => {
-    navigation.navigate('Menu');
+    navigation.navigate('Number');
   };
 
   const renderNextButton = () => {

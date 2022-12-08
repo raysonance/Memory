@@ -53,7 +53,7 @@ const NumberScreen = ({ navigation }) => {
       <StatusBar backgroundColor="#111427" />
       <TopView
         navigation={navigation}
-        test={test.key}
+        test={test ? test.key : '0'}
         level={level ? level.title : "White Room"}
         id={level ? level.key : "5"}
       />
