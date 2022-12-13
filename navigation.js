@@ -19,7 +19,7 @@ const store = configureStore();
 
 const firstScreen = () => {
   const showIntro = storage.getBoolean('showIntro');
-  const screen = showIntro ? 'Number' : 'Intro'; 
+  const screen = showIntro ? 'Intro' : 'Number'; 
   return screen;
 };
 
