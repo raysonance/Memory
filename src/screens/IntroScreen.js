@@ -13,13 +13,13 @@ const slides = [
   {
     key: "two",
     title: "Boost Your Brain Power",
-    text: "Another cool stuff",
+    text: "Play at least twice a day to see benefits in as little as three days.",
     image: require("../../assets/png/2-min.png"),
   },
   {
     key: "three",
     title: "Memorize Like a Genius",
-    text: "I'm already out of descriptions",
+    text: "Rate five stars...",
     image: require("../../assets/png/3-min.png"),
   },
 ];

@@ -53,30 +53,6 @@ const InfiniteForm = ({ navigation, number, params }) => {
   }, [sound]);
 
 
-  React.useEffect(() => {
-    const TIME_INTERVAL = 1000;
-    const intervalId = setInterval(() => {
-      setTimer2(
-        timer2.map((timer) => {
-          const { elapsed, isRunning } = timer;
-          if (elapsed <= 0) {
-            setDisabled(true);
-            return {
-              ...timer,
-              isRunning: false,
-            };
-          }
-          return {
-            ...timer,
-            elapsed: isRunning ? elapsed - TIME_INTERVAL : elapsed,
-          };
-        })
-      );
-    }, 1);
-    return () => {
-      clearInterval(intervalId);
-    };
-  });
   const [value, setValue] = useState("");
   const [success, setSuccess] = useState(false);
 

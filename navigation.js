@@ -16,15 +16,17 @@ import InfiniteNum from './src/screens/InfiniteNum';
 
 const store = configureStore();
 
-if (!storage.contains('showIntro')) {
-  storage.set('showIntro', true);
-}
 
 const firstScreen = () => {
   const showIntro = storage.getBoolean('showIntro');
-  const screen = showIntro ? 'Intro' : 'Number';
+  const screen = showIntro ? 'Number' : 'Intro'; 
   return screen;
 };
+
+
+if (!storage.contains("showIntro")) {
+  storage.set("showIntro", true);
+}
 
 export default function RootNavigation() {
   const Stack = createNativeStackNavigator();

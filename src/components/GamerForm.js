@@ -132,7 +132,7 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
             autoPlay
             loop={false}
             speed={1.5}
-            duration="1000"
+            duration="500"
           />
         </View>
       )}
@@ -144,7 +144,7 @@ const GamerForm = ({ navigation, number, lvl, params }) => {
             autoPlay
             loop={false}
             speed={1.5}
-            duration="1000"
+            duration="500"
           />
         </View>
       )}

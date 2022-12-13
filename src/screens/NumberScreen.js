@@ -32,8 +32,10 @@ const NumberScreen = ({ navigation }) => {
 
   // for the topview
   const level = data.find((item) => item.star < 3);
-
-  const test = data.find((item) => item.star == 3);
+  let newArray = data.filter((item) => {
+    return item.star === 3;
+  });
+  let test = newArray[newArray.length - 1];
 
   // this locks all levels below your current level
   let rock = "lock";
@@ -53,7 +55,7 @@ const NumberScreen = ({ navigation }) => {
       <StatusBar backgroundColor="#111427" />
       <TopView
         navigation={navigation}
-        test={test ? test.key : '0'}
+        test={test ? test.key : "0"}
         level={level ? level.title : "God"}
         id={level ? level.key : "5"}
       />
