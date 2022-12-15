@@ -81,18 +81,21 @@ const Hall = ({ navigation }) => {
             id={0}
             yourBest={score.beginner}
             navigation={navigation}
+            best={78}
           />
           <Challenge
             level={"Skilled"}
             id={1}
             yourBest={score.skilled}
             navigation={navigation}
+            best={12}
           />
           <Challenge
             level={"Master"}
             id={2}
             yourBest={score.master}
             navigation={navigation}
+            best={score.master > 3 ? score.master : 3}
           />
         </View>
       </ImageBackground>

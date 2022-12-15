@@ -109,7 +109,6 @@ const GraphSheet = ({ level, id, test }) => {
               width: 150,
               marginTop: 30,
               marginRight: 20,
-              fontFamily: "Pacifico",
               color: color[id],
             }}
           >

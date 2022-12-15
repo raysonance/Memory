@@ -9,7 +9,7 @@ const skilled = ['#cfe0ea', '#436882'];
 const master = ['#f8ff95', '#f0b118'];
 const locked = ['#a8a8a8', '#ececec'];
 
-const Challenge = ({ level, yourBest, id, navigation }) => {
+const Challenge = ({ level, yourBest, id, navigation, best }) => {
   const [star] = useMMKVObject('Star');
 
   // maps through data and appends star to each corresponding object
@@ -140,7 +140,7 @@ const Challenge = ({ level, yourBest, id, navigation }) => {
               marginTop: 20,
               color: '#97b2c5',
             }}>
-            World Best: <Text style={{ color: 'black' }}>78</Text>
+            World Best: <Text style={{ color: 'black' }}>{best}</Text>
           </Text>
           <Text
             style={{
