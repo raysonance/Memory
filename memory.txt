@@ -1,0 +1,18 @@
+Memory
+
+The Memory Game is a classic matching game that tests and improves players' memory skills. The game is played by flipping 
+over pairs of cards, with the goal of finding matching pairs. Each card contains a unique image or symbol, and the 
+player's task is to remember where each image is located on the game board. The game is won by correctly matching all of the pairs
+on the board.
+
+The Memory Game can be played by one or more players, and the game can be customized by changing the number of cards, the 
+size of the game board, and the type of images or symbols used on the cards. The game can be played on a computer or a 
+mobile device, and can be implemented using various programming languages and technologies.
+
+Overall, the Memory Game is a fun and challenging way to exercise and improve memory skills, and is suitable for players 
+of all ages. In the second option, the user engages by learning a random number (6-13 digits) within a specific time limit
+ and then inputting it after the time runs out. With specific game modes like multiplayer and infinite, the second option 
+also embodies a lot of fun.
+
+It was a fun project to work on because i used many different libraries (popular and unpopular) and alternated between 
+them before finally discarding them for my own written solution.
