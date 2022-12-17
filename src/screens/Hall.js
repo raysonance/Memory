@@ -45,6 +45,7 @@ const Hall = ({ navigation }) => {
               name="menu-2-outline"
             />
           </TouchableOpacity>
+          <Text style={{ fontSize: 30}}>Multiplayer</Text>
           <TouchableOpacity onPress={() => navigation.navigate("Number")}>
             <Icon
               style={{
@@ -75,7 +76,7 @@ const Hall = ({ navigation }) => {
             </Card>
           </Modal>
         </View>
-        <View style={{ marginLeft: 15, marginTop: 30 }}>
+        <View style={{ marginLeft: 15, marginTop: 50 }}>
           <Challenge
             level={"Beginner"}
             id={0}

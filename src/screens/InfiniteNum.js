@@ -1,21 +1,23 @@
-import { StatusBar, View } from 'react-native';
-import { Layout, Text } from '@ui-kitten/components';
-import React, { useState } from 'react';
-import GameCard from '../components/GameCard';
-import { millisecondsToHuman } from '../utils/timer';
-import generate from '../utils/rannums';
-import InfiniteForm from '../components/InfiniteForm';
-import { useDispatch, useSelector } from 'react-redux';
-import { BackHandler } from 'react-native';
-import { useEffect } from 'react';
+import { StatusBar, View } from "react-native";
+import { Layout, Text } from "@ui-kitten/components";
+import React, { useState } from "react";
+import GameCard from "../components/GameCard";
+import { millisecondsToHuman } from "../utils/timer";
+import generate from "../utils/rannums";
+import InfiniteForm from "../components/InfiniteForm";
+import { useDispatch, useSelector } from "react-redux";
+import { BackHandler } from "react-native";
+import { useEffect } from "react";
 
 const InfiniteNum = ({ navigation, route }) => {
-  const { score } = useSelector(state => state.GameReducer.gameItems);
+  const { score1, score2, player } = useSelector(
+    (state) => state.GameReducer.gameItems
+  );
   const dispatch = useDispatch();
 
-  const removePoint = key =>
+  const removePoint = (key) =>
     dispatch({
-      type: 'INCREASE_SCORE',
+      type: "INCREASE_SCORE",
       payload: {
         key: key,
       },
@@ -27,11 +29,11 @@ const InfiniteNum = ({ navigation, route }) => {
     return true;
   }
   useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
+    BackHandler.addEventListener("hardwareBackPress", handleBackButtonClick);
     return () => {
       BackHandler.removeEventListener(
-        'hardwareBackPress',
-        handleBackButtonClick,
+        "hardwareBackPress",
+        handleBackButtonClick
       );
     };
   });
@@ -48,7 +50,7 @@ const InfiniteNum = ({ navigation, route }) => {
     const TIME_INTERVAL = 1000;
     const intervalId = setInterval(() => {
       setTimer(
-        timer.map(sec => {
+        timer.map((sec) => {
           const { elapsed, isRunning } = sec;
           if (elapsed <= 0) {
             return {
@@ -60,7 +62,7 @@ const InfiniteNum = ({ navigation, route }) => {
             ...sec,
             elapsed: isRunning ? elapsed - TIME_INTERVAL : elapsed,
           };
-        }),
+        })
       );
     }, 100);
     return () => {
@@ -72,34 +74,74 @@ const InfiniteNum = ({ navigation, route }) => {
       <StatusBar backgroundColor="#1A2138" />
       {timer[0].isRunning ? (
         <Layout level="4" style={{ flex: 1 }}>
+          <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
+            <View
+              style={{
+                alignItems: "flex-start",
+                marginLeft: 20,
+                marginTop: 20,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 25,
+                  fontFamily: "Action_Man",
+                  color: "red",
+                }}
+              >
+                Player One: {score1}
+              </Text>
+            </View>
+            <View
+              style={{
+                alignItems: "flex-end",
+                marginRight: 20,
+                marginTop: 20,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 25,
+                  fontFamily: "Action_Man",
+                  color: "blue",
+                }}
+              >
+                Player Two: {score2}
+              </Text>
+            </View>
+          </View>
           <View
-            style={{ alignItems: 'flex-end', marginRight: 20, marginTop: 20 }}>
+            style={{ alignItems: "center", marginTop: 70}}
+          >
             <Text
               style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 25,
-                fontFamily: 'Action_Man',
-              }}>
-              Score: {score}
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 50,
+                fontFamily: "Action_Man",
+              }}
+            >
+              Player {player}
             </Text>
           </View>
           <View
-            style={{ flex: 1, justifyContent: 'center', marginHorizontal: 20 }}>
+            style={{ flex: 1, justifyContent: "center", marginHorizontal: 20 }}
+          >
             <Text
               style={{
                 fontSize: 30,
                 lineHeight: 40,
                 paddingTop: 30,
-                fontFamily: 'Action_Man',
-              }}>
+                fontFamily: "Action_Man",
+              }}
+            >
               Memorize the number on the screen before the Timer runs out!
             </Text>
           </View>
           <GameCard number={number} elapsedString={elapsedString} />
         </Layout>
       ) : (
-        <Layout level="4" style={{ flex: 1, justifyContent: 'center' }}>
+        <Layout level="4" style={{ flex: 1, justifyContent: "center" }}>
           <InfiniteForm
             number={number}
             navigation={navigation}

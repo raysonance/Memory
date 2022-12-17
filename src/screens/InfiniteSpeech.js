@@ -10,7 +10,7 @@ import InfiniteForm from '../components/InfiniteForm';
 import { useDispatch, useSelector } from 'react-redux';
 
 const InfiniteSpeech = ({ navigation, route }) => {
-  const { score } = useSelector(state => state.GameReducer.gameItems);
+  const { score1, score2, player } = useSelector(state => state.GameReducer.gameItems);
 
   const dispatch = useDispatch();
 
@@ -66,30 +66,69 @@ const InfiniteSpeech = ({ navigation, route }) => {
       {isRunning ? (
         <Layout level="4" style={{ flex: 1 }}>
           <View
-            style={{ alignItems: 'flex-end', marginRight: 20, marginTop: 20 }}>
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <View
+              style={{
+                alignItems: "flex-start",
+                marginLeft: 20,
+                marginTop: 20,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 25,
+                  fontFamily: "Action_Man",
+                  color: "red",
+                }}
+              >
+                Player One: {score1}
+              </Text>
+            </View>
+            <View
+              style={{
+                alignItems: "flex-end",
+                marginRight: 20,
+                marginTop: 20,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 25,
+                  fontFamily: "Action_Man",
+                  color: "blue",
+                }}
+              >
+                Player Two: {score2}
+              </Text>
+            </View>
+          </View>
+          <View style={{ alignItems: "center", marginTop: 70 }}>
             <Text
               style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 25,
-                fontFamily: 'Action_Man',
-              }}>
-              Score: {score}
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 50,
+                fontFamily: "Action_Man",
+              }}
+            >
+              Player {player}
             </Text>
           </View>
-          <View style={{ flex: 1, marginTop: '50%', marginHorizontal: 20 }}>
+          <View style={{ flex: 1, marginTop: "50%", marginHorizontal: 20 }}>
             <Text
               style={{
                 fontSize: 30,
                 lineHeight: 40,
-                fontFamily: 'Action_Man',
-              }}>
+                fontFamily: "Action_Man",
+              }}
+            >
               Turn Up Your Volume and Memorize the word being spoken!
             </Text>
           </View>
         </Layout>
       ) : (
-        <Layout level="4" style={{ flex: 1, justifyContent: 'center' }}>
+        <Layout level="4" style={{ flex: 1, justifyContent: "center" }}>
           <InfiniteForm
             number={number}
             navigation={navigation}
